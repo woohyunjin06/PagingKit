@@ -309,11 +309,6 @@ open class PagingMenuView: UIScrollView {
     }
     
     open func registerFocusView(view: UIView, isBehindCell: Bool = false) {
-        view.autoresizingMask = [
-            .flexibleWidth,
-            .flexibleHeight
-        ]
-        view.translatesAutoresizingMaskIntoConstraints = true
         view.frame = CGRect(
             origin: .zero,
             size: focusView.bounds.size
@@ -324,6 +319,11 @@ open class PagingMenuView: UIScrollView {
     
     open func registerFocusView(nib: UINib, isBehindCell: Bool = false) {
         let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        view.translatesAutoresizingMaskIntoConstraints = true
+        view.autoresizingMask = [
+            .flexibleWidth,
+            .flexibleHeight
+        ]
         registerFocusView(view: view, isBehindCell: isBehindCell)
     }
 
